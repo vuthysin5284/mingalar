@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="mingalar.biz, mingalar website, mingalar web, mingalar.biz at myanmar" name="description"  />
-<title>Mingalar Welcome</title>
+<title>Mingalar <?php echo isset($_GET["p"])?'::'.$_GET["p"]:'Welcome';?></title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
 
