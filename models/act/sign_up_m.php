@@ -3,7 +3,7 @@
 class sign_up{
 	
 	function Insert($objInfo){ 
-		global $db;
+		global $db; 
 		$detector = false; 
 		$sql = " INSERT INTO m_account " .
 					"SET " . 

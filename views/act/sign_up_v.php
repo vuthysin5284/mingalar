@@ -1,3 +1,6 @@
+<?php
+	define('_username','');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -30,11 +33,12 @@
  
 
 <form method="post" onsubmit="return addNewAccount(); false" enctype="multipart/form-data"> 
-	
+	<?php if(_username=='Admin'){?>
     <div style="float:left; width:150px; border:1px #CCC solid; margin-right:5px;">
-    	<a href="index.php?f=act&p=sign_up" style="text-decoration:none"><div class="text_signup mouse_hover">New User</div></a>
-        <a href="index.php?f=act&p=list_user" style="text-decoration:none"><div class="text_signup mouse_hover">List Users</div></a>
+    	<a href="index.php?f=act&p=sign_up" style="text-decoration:none"><div class="mouse_hover menu">New User</div></a>
+        <a href="index.php?f=act&p=list_user" style="text-decoration:none"><div class="mouse_hover">List Users</div></a>
     </div>
+    <?php } ?>
     <div style="float:left; width:400px; border:1px #CCC solid; padding:10px;"> 
         <?php echo isset($erro)?$erro:''; ?>
         <div class="title">Createa Account</div>  

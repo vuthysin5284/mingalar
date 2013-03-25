@@ -25,7 +25,7 @@
 
 <body> 
 <?php echo isset($erro)?$erro:''; ?>
-<form action="../controllers/login_c.php" method="post" onsubmit="return login(); false" enctype="multipart/form-data">
+<form method="post" onsubmit="return login(); false" enctype="multipart/form-data">
 	<table width="350px" align="center" > 
 		<tr>
 			<td>&nbsp;</td>
@@ -71,7 +71,7 @@
 			<td align="right">&nbsp;</td>
 		</tr>
 		<tr>
-			<td><button type="submit">Login</button>&nbsp;&nbsp;or&nbsp;&nbsp;
+			<td><button type="submit" name="is_submit">Login</button>&nbsp;&nbsp;or&nbsp;&nbsp;
             <label style="color:#333333; font-size:12px;">Create new account</label>&nbsp;
             <a href="index.php?f=act&p=sign_up" style="color:#00C; font-size:12px; text-decoration:none;">Sign Up</a></td>
 		</tr> 
