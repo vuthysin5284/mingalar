@@ -4,48 +4,65 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Create account for join the user login</title>
 </head>
-<style>
-	.text_signup{
-		float:left; width:100%; text-align:left; margin-bottom:10px;
-		color:#333333; font-size:12px; 
+<script language="javascript" type="text/javascript">
+	/*$("#btncreateaccount").live('click', function() {
+   	MessageBox.Show("You don't have permission. please contact to administrator!");
+});*/
+
+	function addNewAccount(){
+		var user_name = document.getElementById('user_name').value;
+		var pwd = document.getElementById('pwd').value;
+		
+		if(user_name==""){
+			alert("User Name and Password Cannot be blank.");
+			return false;
+		}else if(pwd == ""){
+			alert("User Name and Password Cannot be blank.");
+			return false;
+		}else{
+			return true;
+		}
 	}
-</style>
 
+
+</script> 
 <body>
+ 
 
-<!--img src="images/under-construction.jpg" width="347" height="346" / -->
-
-
-<div style="float:left; margin-left:0px; width:400px; border:1px #CCC solid; padding:10px;">
+<form method="post" onsubmit="return addNewAccount(); false" enctype="multipart/form-data"> 
 	
-    <div class="text_signup" style="color:#00C; font-size:20px; font-weight:700; border-bottom:1px #CCC solid; margin-bottom:30px;">Createa Account</div>     
-    
-    
-    <div class="text_signup">User name</div>    
-    <div class="text_signup"><input type="text" style="width:400px;" /></div>    
-    
-    <div class="text_signup">Last name</div>    
-    <div class="text_signup"><input type="text" style="width:400px;"/></div>
-    
-    <div class="text_signup">Fisrt name</div>    
-    <div class="text_signup"><input type="text" style="width:400px;"/></div>    
-    
-    <div class="text_signup">Email address</div>    
-    <div class="text_signup"><input type="text" style="width:400px;"/></div> 
-    
-    <div class="text_signup">New Password</div>    
-    <div class="text_signup"><input type="password" style="width:400px;"/></div> 
-    <div class="text_signup"><font style="font-size:11px;" face="arial">6 or more characters </font></div> 
-    
-    <div style="float:left;"><button>Creat Account</button></div>  
-    <div class="text_signup">&nbsp;</div>  
-    <div class="text_signup">
-            <label style="color:#333333; font-size:12px;">Already on Mingalar?</label>&nbsp;
-            <a href="index.php?f=act&p=sign_up" style="color:#00C; font-size:12px; text-decoration:none;">Log in</a></div> 
-    
-    
-</div>
-
+    <div style="float:left; width:150px; border:1px #CCC solid; margin-right:5px;">
+    	<a href="index.php?f=act&p=sign_up" style="text-decoration:none"><div class="text_signup mouse_hover">New User</div></a>
+        <a href="index.php?f=act&p=list_user" style="text-decoration:none"><div class="text_signup mouse_hover">List Users</div></a>
+    </div>
+    <div style="float:left; width:400px; border:1px #CCC solid; padding:10px;"> 
+        <?php echo isset($erro)?$erro:''; ?>
+        <div class="title">Createa Account</div>  
+        
+        <div class="text_signup">User name</div>    
+        <div class="text_signup"><input type="text" id="user_name" name="user_name" style="width:400px;" /></div>    
+        
+        <div class="text_signup">Last name</div>    
+        <div class="text_signup"><input type="text" id="last_name" name="last_name" style="width:400px;"/></div>
+        
+        <div class="text_signup">Fisrt name</div>    
+        <div class="text_signup"><input type="text" id="first_name" name="first_name" style="width:400px;"/></div>    
+        
+        <div class="text_signup">Email address</div>    
+        <div class="text_signup"><input type="text" id="email_adr" name="email_adr" style="width:400px;"/></div> 
+        
+        <div class="text_signup">New Password</div>    
+        <div class="text_signup"><input type="password" id="pwd" name="pwd" style="width:400px;"/></div> 
+        <div class="text_signup"><font style="font-size:11px;" face="arial">6 or more characters </font></div> 
+        
+        <div style="float:left;"><button id="btncreateaccount" name="btncreateaccount">Creat Account</button></div>  
+        <div class="text_signup">&nbsp;</div>  
+        <div class="text_signup">
+                <label style="color:#333333; font-size:12px;">Already on Mingalar?</label>&nbsp;
+                <a href="index.php?f=act&p=Login" style="color:#00C; font-size:12px; text-decoration:none;">Log in</a></div> 
+         
+    </div>
+    </form>
  
 </body>
 </html>
