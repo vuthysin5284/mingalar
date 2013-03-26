@@ -1,6 +1,4 @@
-<?php 
-session_start();
-require("load.php"); ?>
+<?php require("load.php"); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,15 +17,6 @@ require("load.php"); ?>
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-  
-	$(function() {          
-		 $("img").lazyload({
-			 event : "sporty"
-		 });
-	 });
-	 $(window).bind("load", function() { 
-		 var timeout = setTimeout(function() { $("img").trigger("sporty") }, 5000);
-	 });    
 
 </script>
 </head>
@@ -37,10 +26,9 @@ require("load.php"); ?>
         	<a href="index.php" style="text-decoration:none;color:#00C;">Mingalar.biz</a>
         </div>
         <div style="float:right">
-        	<?php echo isset($_SESSION['u'])?$_SESSION['u']:'';?> &nbsp;&nbsp;
-        	<a href="#mm"><img class="lazy" data-original="images/mm.jpg" src="images/mm.jpg" width="40" /></a>
-            <a href="#en"><img class="lazy" data-original="images/en.jpg" src="images/en.jpg" width="40" /></a>
-            <a href="#cn"><img class="lazy" data-original="images/cn.jpg" src="images/cn.jpg" width="40" /></a>
+        	<a href="#mm"><img src="images/mm.jpg" width="40" /></a>
+            <a href="#en"><img src="images/en.jpg" width="40" /></a>
+            <a href="#cn"><img src="images/cn.jpg" width="40" /></a>
         </div>
     </div>
     <div class="content">
