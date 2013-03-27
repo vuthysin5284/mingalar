@@ -25,7 +25,7 @@
 
 <body> 
 <?php echo isset($erro)?$erro:''; ?>
-<form action="../controllers/login_c.php" method="post" onsubmit="return login(); false" enctype="multipart/form-data">
+<form method="post" onsubmit="return login(); false" enctype="multipart/form-data">
 	<table width="350px" align="center" > 
 		<tr>
 			<td>&nbsp;</td>
@@ -55,25 +55,26 @@
 			<td><font style="color:#333333; font-size:12px; font-weight:700;" face="arial">User Name</font></td>
 		</tr>
 		<tr>
-			<td><input type="text" id="txtuser_name" name="txtuser_name" style="width:350px;font-family:Arial; font-size:14px; font-weight:bold;"/> </td>
+			<td><input type="text" id="txtuser_name" name="txtuser_name" tabindex="1" style="width:350px;font-family:Arial; font-size:14px; font-weight:bold;"/> </td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td><font style="color:#333333; font-size:12px; font-weight:700;" face="arial">Password</font>&nbsp;(&nbsp;
-            <a href="index.php?f=act&p=forgot_password" style="color:#00C; font-size:11px;text-decoration:none;">Forget password?</a>&nbsp;)</td>
+			<td><font style="color:#333333; font-size:12px; font-weight:700;" face="arial">Password</font>&nbsp; 
+            <a href="index.php?f=act&p=forgot_password" style="color:#00C; font-size:11px;">Forget password?</a>&nbsp; </td>
 		</tr>
 		<tr>
-			<td><font color="#333333" face="arial"><input type="password" id="txtpwd" name="txtpwd" style="width:350px" /></font></td>
+			<td><font color="#333333" face="arial">
+            <input type="password" tabindex="2" id="txtpwd" name="txtpwd" style="width:350px" /></font></td>
 		</tr>
 		<tr>
 			<td align="right">&nbsp;</td>
 		</tr>
 		<tr>
-			<td><button type="submit">Login</button>&nbsp;&nbsp;or&nbsp;&nbsp;
+			<td><button type="submit" name="is_submit" tabindex="3">Login</button>&nbsp;&nbsp;or&nbsp;&nbsp;
             <label style="color:#333333; font-size:12px;">Create new account</label>&nbsp;
-            <a href="index.php?f=act&p=sign_up" style="color:#00C; font-size:12px; text-decoration:none;">Sign Up</a></td>
+            <a href="index.php?f=act&p=sign_up" tabindex="4" style="color:#00C; font-size:12px;">Sign Up</a></td>
 		</tr> 
 	</table>
 </form>

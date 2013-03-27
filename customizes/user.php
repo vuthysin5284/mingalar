@@ -108,7 +108,7 @@ class user {
 			if($pwd == md5($password)) {
 				if(user::get_user($id)){ 
 					$newObj=user::get_user($id);
-					$_SESSION['u'] = $newObj->name;
+					$_SESSION['u'] = $newObj->user_name;
 					return true;
 				}
 			}
@@ -137,15 +137,13 @@ class user {
 		$sql .= 'user_name = '.$db->quote($id);
 		$result=$db->Execute($sql);
 		$obj = new user();
-		while($user = $result->FetchRow()) {
-
-			$obj->id 				= $user["account_id"];
-			$obj->user_name 		= $user["user_name"];
-			$obj->password			= $user["password"];
-			$obj->name 			= $user["name"];
-			$obj->email 			= $user["email"];  
-		} 
-		
+		while($row = $result->FetchRow()) { 
+			$obj->id				= $row["account_id"];
+			$obj->user_name		 = $row["user_name"];
+			$obj->password		  = $row["password"];
+			$obj->name 			  = $row["name"];
+			$obj->email 			 = $row["email"];  
+		}  
 		return $obj;
 	}
 
@@ -187,7 +185,7 @@ class user {
 	*logout
 	*return true on success
 	*/
-	public function logout() {
+	public static function logout() { 
 		if(isset($_SESSION['u'])) {
 			unset($_SESSION['u']);
 			return true;

@@ -40,6 +40,9 @@ body {
 .mouse_hover:hover{
 	background-color:#06C; color:#FFF;
 }
+.menu{
+	background-color:#06C; color:#FFF;
+}
  
 .header{
 	width:100%;
@@ -76,7 +79,7 @@ body {
 img{ border:none;}
 
 
-a{text-decoration:none;cursor:pointer; }
+a{cursor:pointer; } 
 
 .title{float:left;padding:10px 0 10px 5px; width:auto; font-size:20px; text-align:left; position:inherit;}
 .search{width:100%; text-align:right; display:block; }
@@ -343,6 +346,7 @@ select {
    border: 1px solid #ccc;
    font-size:15px;
    padding: 6px;
+		color:#333333; 
    line-height: 1;/*-webkit-appearance: none;-moz-appearance:none;*/
 }
 select>option{ padding: 3px;}

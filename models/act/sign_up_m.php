@@ -3,7 +3,7 @@
 class sign_up{
 	
 	function Insert($objInfo){ 
-		global $db;
+		global $db; 
 		$detector = false; 
 		$sql = " INSERT INTO m_account " .
 					"SET " . 
@@ -13,9 +13,23 @@ class sign_up{
 					"insert_date=now(),".   
 					"email= '".$objInfo->email_adr."'";
 		if($db->Execute($sql)){
-			$detector = true;
+			$detector = true; 
+			
+			$obj->account_id = $db->Insert_ID('m_account','account_id');
+			$obj->service_id = $objInfo->service;
+			sign_up::insert_account_service($obj);
 		}
 		return $detector;
+	}
+	
+	static function insert_account_service($obj){
+		global $db;   
+		$sql = " INSERT INTO account_service " .
+					"SET " . 
+					"service_id = '".$obj->service_id."'," . 
+					"account_id= '".$obj->account_id."'," . 
+					"insert_date=now()";
+		$db->Execute($sql);
 	}
 	
 	function Update($objInfo){ 
@@ -110,4 +124,13 @@ class sign_up{
 	//$this->pagingLayoutList($current_record,""); 
 	} 
 	
+	// select service
+	function ServiceList(){
+		global $db;
+		$sql = "select * from m_service where active=1";
+		$result = $db->Execute($sql);
+		while($dr = $result->FetchRow()){
+			echo "<option value='".$dr["service_id"]."'>".$dr["service_name"]."</option>";
+		}
+	}
 }

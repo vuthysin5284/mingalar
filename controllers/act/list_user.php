@@ -39,8 +39,8 @@
 <form id="frmlist_user" method="post" enctype="multipart/form-data"> 
 	<input type="hidden" id="account_id" name="account_id" value="" />
     <div style="float:left; width:150px; border:1px #CCC solid; margin-right:5px;">
-    	<a href="index.php?f=act&p=sign_up" style="text-decoration:none"><div class="text_signup mouse_hover">New User</div></a>
-        <a href="index.php?f=act&p=list_user" style="text-decoration:none"><div class="text_signup mouse_hover">List Users</div></a>
+    	<a href="index.php?f=act&p=sign_up" style="text-decoration:none"><div class="mouse_hover">New User</div></a>
+        <a href="index.php?f=act&p=list_user" style="text-decoration:none"><div class="mouse_hover menu">List Users</div></a>
     </div>
     <div style="float:left; width:423px; border:0px #CCC solid; padding:0px;">  
         <?php echo $_result; ?> 
