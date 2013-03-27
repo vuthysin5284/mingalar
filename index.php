@@ -39,8 +39,10 @@ require("object.php");
 
 </script>
 <script type="text/javascript">   
+$(document).ready(function() {
 	$('a#link').click(function() { 
 		var submenu = $('div#submenu'); 
+		alert('asfds');
 		if (submenu.is(":visible")) { 
 			submenu.fadeOut(); 
 		} else { 
@@ -57,6 +59,8 @@ require("object.php");
 		submenu_active = false;  
 		setTimeout(function() { if (submenu_active === false) $('div#submenu').fadeOut(); }, 400);
 	}); 
+	
+});
 		
 </script>
 
