@@ -11,6 +11,25 @@ body {
 	color:#777777;
 	font-family:Arial, Helvetica, sans-serif;
 }
+
+ 
+
+
+a#link {
+	background:#CCC;
+	padding:10px;
+        cursor:pointer;
+}
+
+div#submenu {
+	position:absolute;
+	border:1px solid #CCC;
+	background:#FFF;
+	padding:10px;
+}
+
+
+
 .error{
 	background-color:#F4EAE3;
 	border:1px solid #FF0000; 

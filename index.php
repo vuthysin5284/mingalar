@@ -38,6 +38,29 @@ require("object.php");
 	 });    
 
 </script>
+<script type="text/javascript">   
+	$('a#link').click(function() { 
+		var submenu = $('div#submenu'); 
+		if (submenu.is(":visible")) { 
+			submenu.fadeOut(); 
+		} else { 
+			submenu.fadeIn(); 
+		}
+	});
+	
+	var submenu_active = false; 
+	$('div#submenu').mouseenter(function() { 
+		submenu_active = true;		 
+	});
+	
+	$('div#submenu').mouseleave(function() { 
+		submenu_active = false;  
+		setTimeout(function() { if (submenu_active === false) $('div#submenu').fadeOut(); }, 400);
+	}); 
+		
+</script>
+
+
 </head>
 <body>
 	<div class="header">
@@ -45,10 +68,19 @@ require("object.php");
         	<a href="index.php" style="text-decoration:none;color:#00C;">Mingalar.biz</a>
         </div>
         <div style="float:right; font-size:10px">
+        
         	<?php echo empty($newObj->name)?'':$newObj->name; ?> &nbsp;&nbsp; 
             <?php if(empty($newObj->name)?'':$newObj->name){ ?>
             <a href="index.php?f=act&p=Logout" style="color:#00C;">Logout</a>
             <?php } ?> 
+            &nbsp;&nbsp;
+            
+            <a id="link">About</a> 
+            <div id="submenu">
+                 <a href="#">About the company</a><br />
+                 <a href="#">Careers</a>
+            </div>
+            
             &nbsp;&nbsp;
         	<a href="#mm"><img class="lazy" data-original="images/mm.jpg" src="images/mm.jpg" width="20" title="Malaysia" /></a>
             <a href="#en"><img class="lazy" data-original="images/en.jpg" src="images/en.jpg" width="20" title="English" /></a>
