@@ -1,4 +1,14 @@
-<?php require("load.php"); ?>
+<?php 
+session_start();
+
+
+require("load.php");  
+
+require("object.php"); 
+ 
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,20 +27,44 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  
+	$(function() {          
+		 $("img").lazyload({
+			 event : "sporty"
+		 });
+	 });
+	 $(window).bind("load", function() { 
+		 var timeout = setTimeout(function() { $("img").trigger("sporty") }, 5000);
+	 });    
 
-</script>
+</script> 
 </head>
 <body>
 	<div class="header">
     	<div style="float:left; font-family:Tahoma, Geneva, sans-serif; font-size:30px; color:#00C; font-weight:bold;">
-        	<a href="index.php" style="text-decoration:none;color:#00C;">Mingalar.biz</a>
+        	<a href="index.php" style="text-decoration:none;color:#00C;">Mingalar</a>
         </div>
-        <div style="float:right">
-        	<a href="#mm"><img src="images/mm.jpg" width="40" /></a>
-            <a href="#en"><img src="images/en.jpg" width="40" /></a>
-            <a href="#cn"><img src="images/cn.jpg" width="40" /></a>
+        <div style="float:right; font-size:10px"> 
+        
+			<?php if(empty($newObj->name)?'':$newObj->name){ ?> 
+                <a id="link" style="text-decoration:none;"> 
+                    <?php echo empty($newObj->name)?'':$newObj->name; ?>  
+                    <img src="images/ns-expand.gif" width="6" />
+                </a>
+                <div id="submenu">  
+                    <li><a href="#">Profiles</a></li> 
+                    <li><a href="index.php?f=act&p=Logout" style="color:#00C;">Logout</a></li> 
+                </div>    
+            <?php }else{ ?>
+            <a id="login" href="index.php?f=act&p=Login" style="text-decoration:none;">Login</a>
+            <?php } ?>
+            
+        	<a href="#mm"><img class="lazy" data-original="images/mm.jpg" src="images/mm.jpg" width="20" title="Malaysia" /></a>
+            <a href="#en"><img class="lazy" data-original="images/en.jpg" src="images/en.jpg" width="20" title="English" /></a>
+            <a href="#cn"><img class="lazy" data-original="images/cn.jpg" src="images/cn.jpg" width="20" title="Chinese" /></a>
+            
         </div>
-    </div>
+    </div> 
     <div class="content">
     	<div style="display:inline-table; padding-top:30px; text-align:center; float:none" align="center">
         	<div align="center" style="text-align:center">
@@ -44,5 +78,31 @@
         </div>
     </div>
     <div class="footer"> mingalar.biz &copy; 2013.</div>
+    
+    
+    <script type="text/javascript" language="javascript" src="js/jquery.dropdown/jquery_003.js"></script>
+    <script type="text/javascript">	
+    $('a#link').click(function() {	
+    	var submenu = $('div#submenu');	
+        if (submenu.is(":visible")) {		
+        	submenu.fadeOut();	
+         } else {		
+         	submenu.fadeIn();	
+         }
+      });
+      
+      var submenu_active = false;
+      $('div#submenu').mouseenter(function() {	
+      		submenu_active = true;							  
+       });
+       $('div#submenu').mouseleave(function() {	
+       		submenu_active = false;		
+        	setTimeout(function() { 
+            	if (submenu_active === false) 
+                	$('div#submenu').fadeOut(); 
+                  }, 400);
+          });		
+     </script> 
+    
 </body>
 </html>
